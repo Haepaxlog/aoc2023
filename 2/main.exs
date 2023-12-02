@@ -13,7 +13,6 @@ defmodule Cubes do
     |> Enum.map(fn s ->
       Enum.reduce(s, %{}, fn s, acc ->
         key = String.to_atom(String.replace(s, Regex.replace(~r/\D/, s, ""), ""))
-        IO.inspect(key)
         val = Regex.replace(~r/\D/, s, "") |> String.to_integer()
 
         Map.update(acc, key, val, fn p ->
